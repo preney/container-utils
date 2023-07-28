@@ -263,6 +263,7 @@ function build_debian_sif()
 ###############################################################################
 #
 # Debian Releases URL: https://wiki.debian.org/DebianReleases
+# Debian LTS URL: https://wiki.debian.org/LTS
 #
 ###############################################################################
 ###############################################################################
@@ -278,29 +279,27 @@ function build_debian_sif()
 #
 
 # i386...
-#build_debian_sif i386 potato linux-debian-2.2-potato-eol.sif
-#build_debian_sif i386 woody linux-debian-3.0-woody-eol.sif
-#build_debian_sif i386 sarge linux-debian-3.1-sarge-eol.sif
+#build_debian_sif i386 potato linux-debian-2.2-potato-i386-eol.sif
+#build_debian_sif i386 woody linux-debian-3.0-woody-i386-eol.sif
+#build_debian_sif i386 sarge linux-debian-3.1-sarge-i386-eol.sif
 
 # amd64...
-#build_debian_sif amd64 etch linux-debian-4-etch-eol.sif
-#build_debian_sif amd64 lenny linux-debian-5-lenny-eol.sif
-#build_debian_sif amd64 squeeze linux-debian-6-squeeze-eol.sif
-#build_debian_sif amd64 wheezy linux-debian-7-wheezy-eol.sif
-#build_debian_sif amd64 jessie linux-debian-8-jessie-eol.sif
-#build_debian_sif amd64 stretch linux-debian-9-stretch-eol.sif
-#build_debian_sif amd64 buster linux-debian-10-buster-${TIMESTAMP}.sif
-#build_debian_sif amd64 bullseye linux-debian-11-bullseye-${TIMESTAMP}.sif
-#build_debian_sif amd64 bookworm linux-debian-12-bookworm-${TIMESTAMP}.sif
+#build_debian_sif amd64 etch linux-debian-4-etch-amd64-eol.sif
+#build_debian_sif amd64 lenny linux-debian-5-lenny-amd64-eol.sif
+#build_debian_sif amd64 squeeze linux-debian-6-squeeze-amd64-eol.sif
+#build_debian_sif amd64 wheezy linux-debian-7-wheezy-amd64-eol.sif
+#build_debian_sif amd64 jessie linux-debian-8-jessie-amd64-eol.sif
+#build_debian_sif amd64 stretch linux-debian-9-stretch-amd64-eol.sif
+#build_debian_sif amd64 buster linux-debian-10-buster-amd64-${TIMESTAMP}.sif
+#build_debian_sif amd64 bullseye linux-debian-11-bullseye-amd64-${TIMESTAMP}.sif
+#build_debian_sif amd64 bookworm linux-debian-12-bookworm-amd64-${TIMESTAMP}.sif
 
 #
 # Generic Debian release names...
 #
-#build_debian_sif amd64 stable linux-debian-stable-${TIMESTAMP}.sif
-#build_debian_sif amd64 testing linux-debian-testing-$TIMESTAMP}.sif
-#build_debian_sif amd64 sid linux-debian-unstable-${TIMESTAMP}.sif
-#build_debian_sif amd64 unstable linux-debian-unstable-${TIMESTAMP}.sif
-#build_debian_sif amd64 experimental linux-debian-experimental-${TIMESTAMP}.sif
+#build_debian_sif amd64 stable linux-debian-stable-amd64-${TIMESTAMP}.sif
+#build_debian_sif amd64 testing linux-debian-testing-amd64-$TIMESTAMP}.sif
+#build_debian_sif amd64 unstable linux-debian-unstable-amd64-${TIMESTAMP}.sif
 
 ###############################################################################
 ###############################################################################

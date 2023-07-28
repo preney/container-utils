@@ -100,7 +100,7 @@ apt-get -y clean
 ZZEOF
       ;;
 
-    natty|oneiric|precise|saucy|raring|quantal|trusty|utopic|vivid|wily|xenial|yakkety|zesty|artful|bionic|cosmic|disco|eoan|focal|groovy|hirsute|impish|jammy|kinetic)
+    natty|oneiric|precise|saucy|raring|quantal|trusty|utopic|vivid|wily|xenial|yakkety|zesty|artful|bionic|cosmic|disco|eoan|focal|groovy|hirsute|impish|jammy|kinetic|lunar|mantic)
       cat <<ZZEOF
 Bootstrap: localimage
 From: $ROOTDIR
@@ -157,7 +157,7 @@ function build_ubuntu_sif()
       URL=http://old-releases.ubuntu.com/ubuntu/
       EOL=eol
       ;;
-    trusty|xenial|bionic|focal|jammy|kinetic)
+    trusty|xenial|bionic|focal|jammy|kinetic|lunar|mantic)
       URL=http://us.archive.ubuntu.com/ubuntu/
       EOL=not_eol
       ;;
@@ -187,50 +187,54 @@ function build_ubuntu_sif()
 #       -C, -c, or -e options.
 #
 
-#build_ubuntu_sif amd64 breezy linux-ubuntu-5.10-breezy-eol.sif
+#build_ubuntu_sif amd64 breezy linux-ubuntu-5.10-breezy-amd64-eol.sif
 
-#build_ubuntu_sif amd64 dapper linux-ubuntu-6.04lts-dapper-eol.sif
-#build_ubuntu_sif amd64 edgy linux-ubuntu-6.10-edgy-eol.sif
-#build_ubuntu_sif amd64 feisty linux-ubuntu-7.04-fiesty-eol.sif
-#build_ubuntu_sif amd64 gutsy linux-ubuntu-7.10-gutsy-eol.sif
+#build_ubuntu_sif amd64 dapper linux-ubuntu-6.04lts-dapper-amd64-eol.sif
+#build_ubuntu_sif amd64 edgy linux-ubuntu-6.10-edgy-amd64-eol.sif
+#build_ubuntu_sif amd64 feisty linux-ubuntu-7.04-fiesty-amd64-eol.sif
+#build_ubuntu_sif amd64 gutsy linux-ubuntu-7.10-gutsy-amd64-eol.sif
 
-#build_ubuntu_sif amd64 hardy linux-ubuntu-8.04lts-hardy-eol.sif
-#build_ubuntu_sif amd64 intrepid linux-ubuntu-8.10-intrepid-eol.sif
-#build_ubuntu_sif amd64 jaunty linux-ubuntu-9.04-jaunty-eol.sif
-#build_ubuntu_sif amd64 karmic linux-ubuntu-9.10-karmic-eol.sif
+#build_ubuntu_sif amd64 hardy linux-ubuntu-8.04lts-hardy-amd64-eol.sif
+#build_ubuntu_sif amd64 intrepid linux-ubuntu-8.10-intrepid-amd64-eol.sif
+#build_ubuntu_sif amd64 jaunty linux-ubuntu-9.04-jaunty-amd64-eol.sif
+#build_ubuntu_sif amd64 karmic linux-ubuntu-9.10-karmic-amd64-eol.sif
 
-#build_ubuntu_sif amd64 lucid linux-ubuntu-10.04lts-lucid-eol.sif
-#build_ubuntu_sif amd64 maverick linux-ubuntu-10.10-maverick-eol.sif
-#build_ubuntu_sif amd64 natty linux-ubuntu-11.04-natty-eol.sif
-#build_ubuntu_sif amd64 oneiric linux-ubuntu-11.10-oneiric-eol.sif
+#build_ubuntu_sif amd64 lucid linux-ubuntu-10.04lts-lucid-amd64-eol.sif
+#build_ubuntu_sif amd64 maverick linux-ubuntu-10.10-maverick-amd64-eol.sif
+#build_ubuntu_sif amd64 natty linux-ubuntu-11.04-natty-amd64-eol.sif
+#build_ubuntu_sif amd64 oneiric linux-ubuntu-11.10-oneiric-amd64-eol.sif
 
-#build_ubuntu_sif amd64 precise linux-ubuntu-12.04lts-precise-eol.sif
-#build_ubuntu_sif amd64 quantal linux-ubuntu-12.10-quantal-eol.sif
-#build_ubuntu_sif amd64 raring linux-ubuntu-13.04-raring-eol.sif
-#build_ubuntu_sif amd64 saucy linux-ubuntu-13.10-saucy-eol.sif
+#build_ubuntu_sif amd64 precise linux-ubuntu-12.04lts-precise-amd64-eol.sif
+#build_ubuntu_sif amd64 quantal linux-ubuntu-12.10-quantal-amd64-eol.sif
+#build_ubuntu_sif amd64 raring linux-ubuntu-13.04-raring-amd64-eol.sif
+#build_ubuntu_sif amd64 saucy linux-ubuntu-13.10-saucy-amd64-eol.sif
 
-#build_ubuntu_sif amd64 trusty linux-ubuntu-14.04lts-trusty-${TIMESTAMP}.sif
-#build_ubuntu_sif amd64 utopic linux-ubuntu-14.10-utopic-eol.sif
-#build_ubuntu_sif amd64 vivid linux-ubuntu-15.04-vivid-eol.sif
-#build_ubuntu_sif amd64 wily linux-ubuntu-15.10-wily-eol.sif
+#build_ubuntu_sif amd64 trusty linux-ubuntu-14.04lts-trusty-amd64-${TIMESTAMP}.sif
+#build_ubuntu_sif amd64 utopic linux-ubuntu-14.10-utopic-amd64-eol.sif
+#build_ubuntu_sif amd64 vivid linux-ubuntu-15.04-vivid-amd64-eol.sif
+#build_ubuntu_sif amd64 wily linux-ubuntu-15.10-wily-amd64-eol.sif
 
-#build_ubuntu_sif amd64 xenial linux-ubuntu-16.04lts-xenial-${TIMESTAMP}.sif
-#build_ubuntu_sif amd64 yakkety linux-ubuntu-16.10-yakkety-eol.sif
-#build_ubuntu_sif amd64 zesty linux-ubuntu-17.04-zesty-eol.sif
-#build_ubuntu_sif amd64 artful linux-ubuntu-17.10-artful-eol.sif
+#build_ubuntu_sif amd64 xenial linux-ubuntu-16.04lts-xenial-amd64-${TIMESTAMP}.sif
+#build_ubuntu_sif amd64 yakkety linux-ubuntu-16.10-yakkety-amd64-eol.sif
+#build_ubuntu_sif amd64 zesty linux-ubuntu-17.04-zesty-amd64-eol.sif
+#build_ubuntu_sif amd64 artful linux-ubuntu-17.10-artful-amd64-eol.sif
 
-#build_ubuntu_sif amd64 bionic linux-ubuntu-18.04lts-bionic-${TIMESTAMP}.sif
-#build_ubuntu_sif amd64 cosmic linux-ubuntu-18.10-cosmic-eol.sif
-#build_ubuntu_sif amd64 disco linux-ubuntu-19.04-disco-eol.sif
-#build_ubuntu_sif amd64 eoan linux-ubuntu-19.10-eoan-eol.sif
+#build_ubuntu_sif amd64 bionic linux-ubuntu-18.04lts-bionic-amd64-${TIMESTAMP}.sif
+#build_ubuntu_sif amd64 cosmic linux-ubuntu-18.10-cosmic-amd64-eol.sif
+#build_ubuntu_sif amd64 disco linux-ubuntu-19.04-disco-amd64-eol.sif
+#build_ubuntu_sif amd64 eoan linux-ubuntu-19.10-eoan-amd64-eol.sif
 
-#build_ubuntu_sif amd64 focal linux-ubuntu-20.04lts-focal-${TIMESTAMP}.sif
-#build_ubuntu_sif amd64 groovy linux-ubuntu-20.10-groovy-eol.sif
-#build_ubuntu_sif amd64 hirsute linux-ubuntu-21.04-hirsute-eol.sif
-#build_ubuntu_sif amd64 impish linux-ubuntu-21.10-impish-eol.sif
+#build_ubuntu_sif amd64 focal linux-ubuntu-20.04lts-focal-amd64-${TIMESTAMP}.sif
+#build_ubuntu_sif amd64 groovy linux-ubuntu-20.10-groovy-amd64-eol.sif
+#build_ubuntu_sif amd64 hirsute linux-ubuntu-21.04-hirsute-amd64-eol.sif
+#build_ubuntu_sif amd64 impish linux-ubuntu-21.10-impish-amd64-eol.sif
 
-#build_ubuntu_sif amd64 jammy linux-ubuntu-22.04lts-jammy-${TIMESTAMP}.sif
-#build_ubuntu_sif amd64 kinetic linux-ubuntu-22.10-kinetic-${TIMESTAMP}.sif
+#build_ubuntu_sif amd64 jammy linux-ubuntu-22.04lts-jammy-amd64-${TIMESTAMP}.sif
+#build_ubuntu_sif amd64 kinetic linux-ubuntu-22.10-kinetic-amd64-${TIMESTAMP}.sif
+
+# Don't yet work with debootstrap v1.0.128...
+#build_ubuntu_sif amd64 lunar linux-ubuntu-23.04-lunar-amd64-${TIMESTAMP}.sif
+#build_ubuntu_sif amd64 mantic linux-ubuntu-23.10-mantic-amd64-${TIMESTAMP}.sif
 
 ###############################################################################
 ###############################################################################
