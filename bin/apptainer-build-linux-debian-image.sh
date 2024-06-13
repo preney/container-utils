@@ -298,7 +298,7 @@ function build_debian_sif()
 # Generic Debian release names...
 #
 #build_debian_sif amd64 stable linux-debian-stable-amd64-${TIMESTAMP}.sif
-#build_debian_sif amd64 testing linux-debian-testing-amd64-$TIMESTAMP}.sif
+#build_debian_sif amd64 testing linux-debian-testing-amd64-${TIMESTAMP}.sif
 #build_debian_sif amd64 unstable linux-debian-unstable-amd64-${TIMESTAMP}.sif
 
 ###############################################################################

@@ -40,9 +40,36 @@ From: $GENTOO_ROOTFS
   source /etc/profile
   emerge-webrsync
 
-  # Enable the first default profile...
-  echo "Selecting profile 1..."
-  eselect profile set 1
+  # Enable the first non-deprecated profile...
+  #   * determine all deprecated profiles
+  TMPFILE1=\`mktemp\`
+  find /var/db/repos/gentoo/profiles/default \
+    -mindepth 3 -type f -name 'deprecated' | \
+    cut -d/ -f7- | sed 's|/deprecated$||' | sort -u >\$TMPFILE1
+
+  #   * determine all profiles
+  TMPFILE2=\`mktemp\`
+  find /var/db/repos/gentoo/profiles/default \
+    -mindepth 3 -type d | cut -d/ -f7- | sort -u >\$TMPFILE2
+
+  #   * compute the set difference
+  TMPFILE3=\`mktemp\`
+  comm -13 \$TMPFILE1 \$TMPFILE2 >\$TMPFILE3
+
+  #   * remove prefix, systemd, and no-multilib entries,
+  #     sort by string length, strip out architecture, and
+  #     output first entry
+  TMPFILE4=\`mktemp\`
+  cat \$TMPFILE3 | grep -v '/prefix' | grep -v '/systemd' | \
+        grep -v '/no-multilib' | \
+        awk '{ print length, \$0 }' | sort -n | cut -d' ' -f2- \
+        | grep amd64 | head -n 1 >\$TMPFILE4
+
+  PROFILE=\`cat \$TMPFILE4\`
+  echo "Selecting profile: \$PROFILE"
+  eselect profile set \$PROFILE
+  unset PROFILE
+  rm -f TMPFILE1 TMPFILE2 TMPFILE3 TMPFILE4
 
   # Either enable all locales or the C.UTF-8 locale...
   #cat /usr/share/i18n/SUPPORTED >/etc/locale.gen
@@ -52,7 +79,7 @@ From: $GENTOO_ROOTFS
   locale-gen
 
   # Set timezone to Etc/UTC...
-  echo "Etc/UTC" >/etc/timezone
+  #echo "Etc/UTC" >/etc/timezone
   emerge --config sys-libs/timezone-data
 
   # Update the system environment...
@@ -75,7 +102,7 @@ function dload_latest_stage3()
   export STAGE3_FNAME=$RELEASE-stage3-$ARCH$FLAVOUR.txt
 
   # Determine the latest release stage3 tarball...
-  curl -L "$URL/$STAGE3_FNAME" | grep -v '^#' | awk '{ print $1 }' >"$ROOTDIR/stage3.txt"
+  curl -L "$URL/$STAGE3_FNAME" | grep stage3-$ARCH$FLAVOUR | awk '{ print $1 }' >"$ROOTDIR/stage3.txt"
   local TARBALL_URL="$GENTOO_BASE_URL/$(cat "$ROOTDIR/stage3.txt")"
 
   # Download the tarball...
